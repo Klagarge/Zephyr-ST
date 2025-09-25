@@ -1,0 +1,24 @@
+/ {
+    aliases {
+        led0 = &led0;
+        led1 = &led1;
+        led2 = &led2;
+        led3 = &led3;
+    };
+
+    leds {
+        compatible = "gpio-leds";
+        led0: pa15 {
+            gpios = <&gpioa 15 GPIO_ACTIVE_HIGH>;
+        };
+        led1: ph6 {
+            gpios = <&gpioh 6 GPIO_ACTIVE_HIGH>;
+        };
+        led2: pa8 {
+            gpios = <&gpioa 8 GPIO_ACTIVE_HIGH>;
+        };
+        led3: pb4 {
+            gpios = <&gpiob 4 GPIO_ACTIVE_HIGH>;
+        };
+    };
+};

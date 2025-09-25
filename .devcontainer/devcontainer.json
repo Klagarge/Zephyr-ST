@@ -1,0 +1,39 @@
+{
+  "name": "Zephyr Development Environment - STM32",
+  "image": "ghcr.io/klagarge/Zephyr-ST:z0.16.8-v1.0",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        // dev Zephyr
+        "mcu-debug.debug-tracker-vscode",
+        "marus25.cortex-debug",
+        "ms-vscode.cmake-tools",
+        "dan-c-underwood.arm",
+
+        // doc
+        "myriad-dreamin.tinymist",
+        "theumletteam.umlet"
+      ]
+    }
+  },
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+  "workspaceFolder": "/workspace",
+  "runArgs": [
+    "--name",
+    "HEI-Zephyr-STM32",
+    "--rm",
+    "-it",
+    "--privileged",
+    "--network=host",
+    "--add-host=host.docker.internal:host-gateway"
+  ],
+  "remoteUser": "root",
+  "mounts": ["source=/dev,target=/dev,type=bind,consistency=cached"],
+  "containerEnv": {
+    "ZEPHYR_BASE": "/opt/toolchains/zephyr",
+    "ZEPHYR_SDK_INSTALL_DIR": "/opt/toolchains/zephyr-sdk"
+  },
+  "features": {},
+  "postCreateCommand": "echo 'Zephyr development environment ready for STM32!'",
+  "shutdownAction": "stopContainer"
+}

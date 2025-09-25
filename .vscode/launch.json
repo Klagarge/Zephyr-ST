@@ -1,0 +1,35 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+        "name": "Debug F746NG Discovery (st-util)",
+        "type": "cortex-debug",
+        "request": "launch",
+        "servertype": "external",
+        "gdbTarget": "host.docker.internal:4242",
+        "device": "STM32F746NG",
+        "executable": "${workspaceFolder}/build/zephyr/zephyr.elf",
+        "gdbPath": "/opt/toolchains/zephyr-sdk/arm-zephyr-eabi/bin/arm-zephyr-eabi-gdb",
+        "preLaunchCommands": [
+          "monitor halt",
+          "load",
+          "monitor reset halt"
+        ]
+    },
+    {
+        "name": "Debug Nucleo L432KC (st-util)",
+        "type": "cortex-debug",
+        "request": "launch",
+        "servertype": "external",
+        "gdbTarget": "host.docker.internal:4242",
+        "device": "nucleo_l432kc",
+        "executable": "${workspaceFolder}/build/zephyr/zephyr.elf",
+        "gdbPath": "/opt/toolchains/zephyr-sdk/arm-zephyr-eabi/bin/arm-zephyr-eabi-gdb",
+        "preLaunchCommands": [
+          "monitor halt",
+          "load",
+          "monitor reset halt"
+        ]
+    }
+  ]
+}

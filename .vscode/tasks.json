@@ -1,0 +1,59 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build F746 Discovery",
+            "type": "shell",
+            "command": "west",
+            "args": [
+                "build",
+                "-p", "always",
+                "-b", "stm32f746g_disco",
+                "--",
+                "-DDTC_OVERLAY_FILE=boards/stm32f746g_disco.overlay"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "problemMatcher": [
+                "$gcc"
+            ]
+        },
+        {
+            "label": "Build Nucleo L432KC",
+            "type": "shell",
+            "command": "west",
+            "args": [
+                "build",
+                "-p", "always",
+                "-b", "nucleo_l432kc",
+                "--",
+                "-DDTC_OVERLAY_FILE=boards/stm32l432kc.overlay"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "problemMatcher": [
+                "$gcc"
+            ]
+        }
+    ]
+}
